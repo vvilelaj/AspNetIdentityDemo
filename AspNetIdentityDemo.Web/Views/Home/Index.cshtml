@@ -3,3 +3,69 @@
 }
 
 <h2>Home - Index</h2>
+
+@if (User.Identity.IsAuthenticated)
+{
+    <table id="tblProducts" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Product Name</th>
+                <th>Price </th>
+            </tr>
+        </thead>
+    </table>
+}
+
+@section scripts
+{
+    <script language="javascript" type="text/javascript">
+        var GetAllProductsPromise = function() {
+            var dfd = $.Deferred();
+
+            $.ajax({
+                method: "GET",
+                dataType: "json",
+                url: "/api/products/",
+                //data: {data},
+                success: function(data) {
+                    dfd.resolve(data);
+                },
+                error: function (jqXHR, textStatus) {
+                    dfd.reject(jqXHR, textStatus);
+                }
+            });
+
+            return dfd;
+        };
+
+        var GenerateProductRows = function(data) {
+            var rows = "";
+            rows += "<tbody>";
+            for (var i = 0; i < data.length; i++) {
+                rows += "<tr>";
+                for (var attr in data[i]) {
+                    rows += "<td>" + data[i][attr] + "</td>";
+                }
+                rows += "</tr>";
+            }
+            rows += "</tbody>";
+
+            return rows;
+        };
+
+        $(document).ready(function() {
+            GetAllProductsPromise()
+                .done(function(data) {
+                    debugger;
+                    $("#tblProducts").append(GenerateProductRows(data));
+                }).fail(function (jqXHR, textStatus) {
+                    debugger;
+                    console.log(jqXHR);
+                    console.log(textStatus);
+                });
+        });
+
+
+    </script>
+}

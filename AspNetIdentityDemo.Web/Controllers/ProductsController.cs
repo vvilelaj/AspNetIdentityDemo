@@ -9,18 +9,20 @@ using AspNetIdentityDemo.Web.BizLogic;
 
 namespace AspNetIdentityDemo.Web.Controllers
 {
-    public class ProductosController : ApiController
+    [Authorize]
+    public class ProductsController : ApiController
     {
         public ProductsBL ProductsBl { get; set; }
 
-        public ProductosController()
+        public ProductsController()
         {
             ProductsBl = new ProductsBL();
         }
 
         [HttpGet]
-        public IHttpActionResult GetProducts()
+        public IHttpActionResult GetAllProducts()
         {
+            var userName = User.Identity.Name;
             return Ok(ProductsBl.GetAllProducts());
         }
     }
