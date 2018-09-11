@@ -1,0 +1,23 @@
+﻿@model AspNetIdentityDemo.Web.Models.Account.LogInModel
+
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>Register</h2>
+
+
+@using (Html.BeginForm("LogIn", "Account", FormMethod.Post))
+{
+    @Html.ValidationSummary()
+
+    @Html.LabelFor(x => x.UserName) @Html.TextBoxFor(x => x.UserName)
+    <br />
+    @Html.LabelFor(x => x.Password) @Html.PasswordFor(x => x.Password)
+    <br />
+    @*@Html.CheckBoxFor(x => x.RememberMe)
+    <br />*@
+    <input class="btn" type="submit" value="LogIn" />
+}
+
+
