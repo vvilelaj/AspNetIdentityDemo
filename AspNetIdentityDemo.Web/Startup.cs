@@ -29,10 +29,10 @@ namespace AspNetIdentityDemo.Web
             // Create a SingIngManager
             app.CreatePerOwinContext<SignInManager<IdentityUser, string>>((opt, ctx) => new SignInManager<IdentityUser, string>(ctx.Get<UserManager<IdentityUser>>(), ctx.Authentication));
 
+            // Use Cookie Authentication with forms
             app.UseCookieAuthentication(new CookieAuthenticationOptions()
             {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-                
             });
         }
     }

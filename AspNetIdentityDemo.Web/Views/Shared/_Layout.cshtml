@@ -16,7 +16,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("AspNetIdentityDemo", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -24,8 +24,17 @@
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Register", "Register", "Account")</li>
-                    <li>@Html.ActionLink("LogIn", "LogIn", "Account")</li>
-                    <li>@Html.ActionLink("LogOut", "LogOut", "Account")</li>
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("LogIn", "LogIn", "Account")</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink(User.Identity.Name + " (Close)", "LogOut", "Account")</li>
+                    }
                 </ul>
             </div>
         </div>

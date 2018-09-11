@@ -8,6 +8,7 @@ using AspNetIdentityDemo.Web.Models.Account;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
 
 namespace AspNetIdentityDemo.Web.Controllers
 {
@@ -18,7 +19,7 @@ namespace AspNetIdentityDemo.Web.Controllers
             get { return HttpContext.GetOwinContext().Get<UserManager<IdentityUser>>(); }
         }
 
-        private SignInManager<IdentityUser,string> SignInManager
+        private SignInManager<IdentityUser, string> SignInManager
         {
             get { return HttpContext.GetOwinContext().Get<SignInManager<IdentityUser, string>>(); }
         }
@@ -64,19 +65,28 @@ namespace AspNetIdentityDemo.Web.Controllers
             {
                 case SignInStatus.Success:
                     return RedirectToAction("Index", "Home");
-                    break;
                 case SignInStatus.LockedOut:
+                    ModelState.AddModelError("LockedOut", "The account is blocked");
                     break;
                 case SignInStatus.RequiresVerification:
+                    ModelState.AddModelError("RequiresVerification", "Can not sing in before verify account");
                     break;
                 case SignInStatus.Failure:
+                    ModelState.AddModelError("Failure", "Please try again");
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException();
+                    break;
             }
 
-            return RedirectToAction("Index", "Home");
+            return View(model);
 
+        }
+
+        public ActionResult LogOut()
+        {
+            SignInManager.AuthenticationManager.SignOut();
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }
