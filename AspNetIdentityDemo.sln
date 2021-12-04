@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27703.2000
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetIdentityDemo.Web", "AspNetIdentityDemo.Web\AspNetIdentityDemo.Web.csproj", "{4376F397-5A03-48F8-9558-3EAAB5298192}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetIdentityDemo.WebJwt", "AspNetIdentityDemo.WebJwt\AspNetIdentityDemo.WebJwt.csproj", "{0C9BAC38-1834-40D4-BD81-66515BA2DF8B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetIdentityDemo.WebJwt", "AspNetIdentityDemo.WebJwt\AspNetIdentityDemo.WebJwt.csproj", "{9AF8F961-41E7-4E3C-B99C-1680420D4146}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{4376F397-5A03-48F8-9558-3EAAB5298192}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4376F397-5A03-48F8-9558-3EAAB5298192}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4376F397-5A03-48F8-9558-3EAAB5298192}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0C9BAC38-1834-40D4-BD81-66515BA2DF8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0C9BAC38-1834-40D4-BD81-66515BA2DF8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0C9BAC38-1834-40D4-BD81-66515BA2DF8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0C9BAC38-1834-40D4-BD81-66515BA2DF8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AF8F961-41E7-4E3C-B99C-1680420D4146}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AF8F961-41E7-4E3C-B99C-1680420D4146}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AF8F961-41E7-4E3C-B99C-1680420D4146}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AF8F961-41E7-4E3C-B99C-1680420D4146}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

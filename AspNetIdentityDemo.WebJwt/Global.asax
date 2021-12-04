@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="AspNetIdentityDemo.WebJwt.MvcApplication" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="AspNetIdentityDemo.WebJwt.WebApiApplication" Language="C#" %>
